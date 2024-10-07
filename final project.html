@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venture Gulf Engineering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-color: black; /* خلفية سوداء لتسهيل القراءة */
+        }
+        .header {
+            position: absolute;
+            top: 20px; /* مسافة من الأعلى */
+            left: 50%;
+            transform: translateX(-50%); /* محاذاة للوسط */
+            font-size: 3em; /* حجم أكبر للعنوان */
+            background: linear-gradient(to right, red, silver, white); /* تدرج الألوان */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* خلفية الفيديو */
+            overflow: hidden;
+        }
+        .video-background iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* إزالة الحدود */
+            filter: brightness(0.2); /* تقليل السطوع */
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* محاذاة عمودية */
+            margin-top: 40px; /* مسافة بين العنوان والأزرار */
+            position: absolute; /* لجعلها فوق المحتوى */
+            top: 100px; /* تحديد المسافة من الأعلى */
+        }
+        .button {
+            background-color: rgba(255, 0, 0, 0.8);
+            border: none;
+            color: white; /* لون النص ثابت */
+            padding: 20px 40px; /* زيادة حجم الأزرار */
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 24px; /* زيادة حجم النص */
+            margin: 0 15px; /* مسافة بين الأزرار */
+            cursor: pointer;
+            border-radius: 8px; /* زوايا مدورة */
+            transition: background-color 0.3s, transform 0.3s; /* تأثير التحويل */
+            position: relative; /* لتسهيل تأثير اللمعان */
+            border: 2px solid black; /* إضافة حافة سوداء */
+        }
+        .button:hover {
+            background-color: black; /* تغيير الخلفية عند التمرير */
+            transform: scale(1.05); /* تأثير تكبير عند التمرير */
+        }
+        .button img {
+            margin-right: 10px; /* مسافة بين الأيقونة والنص */
+        }
+        .divider {
+            height: 2px; /* ارتفاع الخط */
+            background-color: white; /* لون الخط */
+            flex: 1; /* ليكون الخط مرن */
+            margin: 0 10px; /* مسافة حول الخط */
+            position: relative; /* لتسهيل وضع الأيقونة */
+        }
+        .divider .shield-icon {
+            position: absolute; /* موضع الأيقونة في منتصف الخط */
+            left: 50%;
+            transform: translateX(-50%); /* محاذاة للأوسط */
+            top: -15px; /* موضع الأيقونة فوق الخط */
+            animation: pulse 1.5s infinite; /* تأثير النبض */
+            filter: drop-shadow(0 0 10px red); /* تأثير اللمعان */
+        }
+        @keyframes pulse {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        .moving-text {
+            position: absolute;
+            bottom: 160px; /* موقع النص المتحرك */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            animation: move 2s infinite alternate;
+            text-align: center;
+        }
+        @keyframes move {
+            0% { transform: translate(-50%, -10px); }
+            100% { transform: translate(-50%, 10px); }
+        }
+        .contact-card {
+            position: absolute; /* تغيير الموقع إلى مطلق */
+            bottom: 20px; /* مسافة من الأسفل */
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* إضافة ظل */
+        }
+        .hidden-email {
+            display: inline;
+            margin-top: 10px;
+            font-size: 20px;
+            color: red; /* تغيير لون البريد الإلكتروني إلى الأحمر */
+        }
+        .copy-button {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline;
+            transition: background-color 0.3s; /* إضافة تأثير عند التمرير */
+        }
+        .copy-button:hover {
+            background-color: darkblue; /* تغيير اللون عند التمرير */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Venture Gulf Engineering
+    </div>
+
+    <div class="buttons-container">
+        <button class="button" onclick="window.open('https://www.virustotal.com/', '_blank')">
+            <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/shield.png" alt="Shield Icon"/> 
+            Check Links and Files
+        </button>
+
+        <div class="divider">
+            <img class="shield-icon" src="https://img.icons8.com/ios-filled/50/ff0000/shield.png" alt="Shield Icon"/> 
+        </div>
+
+        <button class="button" onclick="window.open('https://haveibeenpwned.com/', '_blank')">
+            <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Search Icon"/> 
+            Check Emails
+        </button>
+    </div>
+
+    <div class="video-background">
+        <iframe src="https://www.youtube.com/embed/NAlQkWcKHCI?autoplay=1&mute=1&loop=1&playlist=NAlQkWcKHCI" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="moving-text">
+        Your safety and security is our priority. Be careful and always monitor your accounts. <br>
+        Check any link or file before opening it.
+    </div>
+
+    <div class="contact-card">
+        <div class="contact-text">
+            Any Question? Contact us (IT team): 
+            <span id="email" class="hidden-email">sanad@vengulf.net</span>
+            <button class="copy-button" id="copyButton" onclick="copyEmail(event)">Copy Email</button>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail(event) {
+            event.stopPropagation();
+            const email = document.getElementById('email');
+            navigator.clipboard.writeText(email.innerText)
+                .then(() => alert('Email copied to clipboard!'))
+                .catch(err => console.error('Could not copy email: ', err));
+        }
+    </script>
+</body>
+</html>
